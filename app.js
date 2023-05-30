@@ -119,11 +119,12 @@ io.on('connection', function (socket) {
   socket.on('connect_user', function (user) {
     console.log('👤', socket.id, "- Connected user");
     socket.join(user['roomName']);
+    console.log("👩🏻‍💻 USER NAME :", user['username']);
     console.log("🏷 ROOM NAME :", user['roomName']);
-
     // console.log("📦 STATE : ", socket.adapter.rooms);
     io.emit('connect_user', user);
   });
+
 
   // 메세지 입력하면 서버 로그 메시지 출력
   socket.on('chat_message', function (msg) {
